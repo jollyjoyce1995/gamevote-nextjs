@@ -1,7 +1,6 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import styles from './party.module.css'
 
 export default function PartyHeader() {
     const router = useRouter()
@@ -12,7 +11,7 @@ export default function PartyHeader() {
 
     return (
         <div className="p-2">
-            <button className="bg-blue-400 hover:bg-blue-500 text-white font-bold py-2 px-3 rounded text-sm" onClick={goBack}>↩ Back</button>
+            <button className="bg-slate-400 hover:bg-slate-500 text-slate-100 font-bold p-1 px-2 rounded text-sm" onClick={goBack}>↩ Back</button>
         </div>
     )
 }
