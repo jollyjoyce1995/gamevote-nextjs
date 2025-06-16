@@ -2,14 +2,13 @@
 import { useEffect, useRef, useState } from "react";
 import styles from "./Navbar.module.css"
 import Image from "next/image";
-import { useSession } from "next-auth/react";
+import useBearStore from "@/lib/store";
 
 export default function Navbar() {
     const [isScrolled, setIsScrolled] = useState(false);
-    const navbarRef = useRef(null);
-    const sessionData = useSession()
+    const {partyCode} = useBearStore();
 
-    console.log(sessionData);
+    const navbarRef = useRef(null);
 
     useEffect(() => {
         const handleScroll = () => {
@@ -43,10 +42,7 @@ export default function Navbar() {
                     </div>
 
                     <div className="hidden md:flex space-x-6">
-                        <a href="#" className="text-gray-700 hover:text-indigo-600">asdf</a>
-                        <a href="#" className="text-gray-700 hover:text-indigo-600">About</a>
-                        <a href="#" className="text-gray-700 hover:text-indigo-600">Services</a>
-                        <a href="#" className="text-gray-700 hover:text-indigo-600">Contact</a>
+                        <a href="#" className="text-gray-700 hover:text-indigo-600">{partyCode}</a>
                     </div>
 
                     <div className="md:hidden">
@@ -57,10 +53,7 @@ export default function Navbar() {
                 </div>
 
                 <div id="mobile-menu" className="hidden md:hidden px-2 pt-2 pb-3 space-y-1">
-                    <a href="#" className="block text-gray-700 hover:text-indigo-600">Home</a>
-                    <a href="#" className="block text-gray-700 hover:text-indigo-600">About</a>
-                    <a href="#" className="block text-gray-700 hover:text-indigo-600">Services</a>
-                    <a href="#" className="block text-gray-700 hover:text-indigo-600">Contact</a>
+                    <a href="#" className="block text-gray-700 hover:text-indigo-600">qwer</a>
                 </div>
             </div>
         </div>

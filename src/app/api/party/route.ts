@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "@/lib/conifg";
+import { API_BASE_URL } from "@/lib/config";
 
 export async function POST() {
     const res = await fetch(`${API_BASE_URL}/parties`, {
@@ -9,9 +9,6 @@ export async function POST() {
         },
         body: JSON.stringify({})
     });
-    console.log("asdf");
-    console.log(res);
     const data = await res.json();
-    console.log(data);
     return Response.json(data);
 }

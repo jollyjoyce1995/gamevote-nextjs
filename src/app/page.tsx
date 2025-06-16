@@ -20,8 +20,6 @@ export default function Home() {
       if (!res.ok) throw new Error("Something went wrong");
       const party = await res.json();
       
-      console.log(party);
-
       router.push(`/party/${party.code}`);
     } catch (err) {
       console.error(err);
