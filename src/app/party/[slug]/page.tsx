@@ -17,7 +17,7 @@ export default async function PartyPage({ params }: { params: { slug: string } }
     const party: Party = await res.json()
 
   return (
-      <div className="min-w-150 bg-slate-100 border-4 border-slate-300">
+      <div className="min-w-150 bg-slate-100 border-4 border-slate-300 rounded">
           <div className="bg-slate-300">
               <PartyHeader/>
           </div>
