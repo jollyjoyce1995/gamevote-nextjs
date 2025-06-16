@@ -1,0 +1,14 @@
+.navbar {
+    background-color: #db107e;
+    overflow: hidden;
+    padding: 90px 10px;
+    transition: 0.4s;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 99;
+}
+
+.navbarContainer {
+    max-width: 96rem;
+}
