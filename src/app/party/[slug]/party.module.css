@@ -1,0 +1,14 @@
+.party {
+    background: black;
+    color: white;
+    min-width: 500px;
+}
+
+.party h1 {
+    font-size: 23px;
+}
+
+.party h2 {
+    font-size: 18px;
+}
+
