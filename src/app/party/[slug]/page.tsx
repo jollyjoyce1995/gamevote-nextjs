@@ -1,22 +1,30 @@
-"use client";
-import PartyCodeComponent from "./PartyCodeComponent";
-import {useRouter} from "next/navigation";
 import PartyComponent from "@/app/party/[slug]/PartyComponent";
+import {API_BASE_URL} from "@/lib/config";
+import PartyHeader from "@/app/party/[slug]/PartyHeader";
 
-export default function PartyPage({ params }: { params: { slug: string } }) {
-    const router = useRouter()
-      async function handleClick() {
-          router.push('/')
-      }
+
+type Party = {
+    id: number,
+    attendees: string[],
+}
+
+export default async function PartyPage({ params }: { params: { slug: string } }) {
+    const partyCode = params.slug
+
+    const res = await fetch(`${API_BASE_URL}/parties/${partyCode}`, {
+        cache: 'no-store', // like getServerSideProps
+    })
+    const party: Party = await res.json()
 
   return (
-      <div>
-        <div>
-            <button onClick={handleClick}>Back</button>
-        </div>
+      <div className="min-w-150 bg-blue-100 border-4 border-blue-300">
+          <div className="bg-blue-300">
+              <PartyHeader/>
+          </div>
 
-        <div>Product ID: <PartyCodeComponent partyCode={params.slug}></PartyCodeComponent></div>
-          <div><PartyComponent/></div>
+        <div className="p-2">
+            <PartyComponent party={party}/>
+        </div>
 
       </div>
   );
